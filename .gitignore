@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs & caches
+dist/
+.next/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# Environment & Secrets (Recursive)
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+!**/.env.example
+
+# Exclude docs and other markdown files (per user request: only README.md is included)
+docs/
+**/docs/
+*.md
+**/*.md
+!README.md
+
+# Binaries, scratch & database backups
+bin/
+scratch/
+*.dump
+*.dump*
+*.sql.gz
+*.bak
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS & Editor files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Docker volume mounts / temp
+data/

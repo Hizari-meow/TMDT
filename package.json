@@ -1,0 +1,35 @@
+{
+  "name": "high-concurrency-flash-sale",
+  "version": "1.0.0",
+  "private": true,
+  "description": "High-Concurrency Flash Sale Platform with NestJS, Fastify, Redis Lua, BullMQ, PostgreSQL 16, and Next.js 14",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "db:migrate": "npm --prefix apps/backend run db:migrate",
+    "db:seed": "npm --prefix apps/backend run db:seed",
+    "db:verify": "docker compose exec -T postgres psql -U flashsale -d flashsale_db -f /scripts/verify_partitions.sql",
+    "backend:dev": "npm --prefix apps/backend run start:dev",
+    "backend:build": "npm --prefix apps/backend run build",
+    "backend:test": "npm --prefix apps/backend run test",
+    "frontend:dev": "npm --prefix apps/frontend run dev",
+    "frontend:build": "npm --prefix apps/frontend run build",
+    "test:stress": "k6 run load-tests/k6/flash_sale_stress.js"
+  },
+  "keywords": [
+    "flash-sale",
+    "concurrency",
+    "redis-lua",
+    "bullmq",
+    "nestjs",
+    "fastify",
+    "postgresql",
+    "nextjs"
+  ],
+  "author": "Distributed Systems Architect",
+  "license": "MIT"
+}
